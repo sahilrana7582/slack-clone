@@ -28,7 +28,7 @@ const UserButton = () => {
           <AvatarFallback>{userName}</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="center" side="right">
+      <DropdownMenuContent align="center" side="right" className="ml-4">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
