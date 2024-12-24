@@ -5,12 +5,14 @@ import CreateNewChannel from '@/features/channels/components/CreateNewChannel';
 import { useGetWorkSpaceInfo } from '@/features/workspace/api/use-get-info-by-id';
 import { useWorkspace } from '@/features/workspace/api/use-workspace';
 import WorkSpaceHeader from '@/features/workspace/components/WorkSpaceHeader';
+import useChannelId from '@/lib/useChannelId';
 import useGetWorkSpaceId from '@/lib/useWorkSpaceId';
 import { Hash, Loader2 } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 const WorkspaceSidebar = () => {
   const workspaceId = useGetWorkSpaceId();
+  const channelId = useChannelId();
   console.log(workspaceId, '<<<<<<<<<');
   const { data } = useGetWorkSpaceInfo({ id: workspaceId });
   const { data: workspace } = useWorkspace({ id: workspaceId });
@@ -37,6 +39,7 @@ const WorkspaceSidebar = () => {
             isChannel={true}
             id={channel._id}
             label={channel.name}
+            isActive={channelId === channel._id}
           />
         ))}
       </CreateNewChannel>

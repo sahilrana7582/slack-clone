@@ -60,7 +60,7 @@ const CreateWorkSpaceModal = () => {
               <DropdownMenuItem
                 key={workspace._id}
                 className="py-6 "
-                onClick={() => router.push(`/workspace/${workspace._id}`)}
+                onClick={() => router.push(`/workspaces/${workspace._id}`)}
               >
                 <p className="text-clip font-semibold text-md ">
                   {workspace.name}
