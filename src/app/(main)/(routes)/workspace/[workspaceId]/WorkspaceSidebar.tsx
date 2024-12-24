@@ -11,6 +11,7 @@ import { usePathname } from 'next/navigation';
 
 const WorkspaceSidebar = () => {
   const workspaceId = useGetWorkSpaceId();
+  console.log(workspaceId, '<<<<<<<<<');
   const { data } = useGetWorkSpaceInfo({ id: workspaceId });
   const { data: workspace } = useWorkspace({ id: workspaceId });
   const { channels, channelLoading } = useAllChannels({ id: workspaceId });
