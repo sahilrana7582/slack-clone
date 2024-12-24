@@ -21,10 +21,12 @@ import { useGetAllWorkspaces } from '@/features/workspace/api/use-get-all-worksp
 import { ScrollArea } from '../ui/scroll-area';
 import { Plus } from 'lucide-react';
 import { useModal } from '@/features/store/use-workspace-modal';
+import { useRouter } from 'next/navigation';
 
 const CreateWorkSpaceModal = () => {
   const { data, isLoading } = useGetAllWorkspaces();
   const [open, setOpen] = useModal();
+  const router = useRouter();
 
   return (
     <DropdownMenu>
@@ -47,7 +49,11 @@ const CreateWorkSpaceModal = () => {
         <ScrollArea className="h-[200px]">
           {data &&
             data.map((workspace) => (
-              <DropdownMenuItem key={workspace._id} className="py-6 ">
+              <DropdownMenuItem
+                key={workspace._id}
+                className="py-6 "
+                onClick={() => router.push(`/workspace/${workspace._id}`)}
+              >
                 <p className="text-clip font-semibold text-md ">
                   {workspace.name}
                 </p>

@@ -7,14 +7,7 @@ import { ConvexReactClient } from 'convex/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const Home = () => {
-  return (
-    <div className="  w-fit flex items-center justify-center h-full">
-      <div className="flex flex-col w-16 bg-[#5E2C5F]  items-center h-full gap-10">
-        <CreateWorkSpaceModal />
-        <UserButton />
-      </div>
-    </div>
-  );
+  return <div className="h-full">Home</div>;
 };
 
 export default Home;

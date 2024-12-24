@@ -76,9 +76,17 @@ const CreateNewWorkspace = () => {
                 </FormItem>
               )}
             />
-            <Button className="w-full" type="submit">
-              Add Workspace
-            </Button>
+
+            <div className="w-full flex justify-between ">
+              <Button
+                type="button"
+                variant="destructive"
+                onClick={() => form.reset()}
+              >
+                Reset
+              </Button>{' '}
+              <Button type="submit">Create</Button>
+            </div>
           </form>
         </Form>
       </DialogContent>

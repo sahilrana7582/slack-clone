@@ -124,7 +124,7 @@ export const getInfoById = query({
     if (!workspace) return null;
 
     return {
-      name: workspace?.name,
+      name: workspace.name,
       isMember: !!member,
       role: member?.role,
     };
