@@ -14,7 +14,6 @@ const WorkSpaceLayout = ({ children }: { children: React.ReactNode }) => {
     >
       <ResizablePanel defaultSize={20} minSize={11} className="bg-[#5E2C5F]">
         <WorkspaceSidebar />
-        {/* <WorkSpaceHeader /> */}
       </ResizablePanel>
 
       <ResizableHandle withHandle />

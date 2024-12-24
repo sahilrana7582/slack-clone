@@ -19,20 +19,28 @@ import { Id } from '../../../convex/_generated/dataModel';
 import { convexQuery } from '@convex-dev/react-query';
 import { useGetAllWorkspaces } from '@/features/workspace/api/use-get-all-workspaces';
 import { ScrollArea } from '../ui/scroll-area';
-import { Plus } from 'lucide-react';
+import { Loader2, Plus } from 'lucide-react';
 import { useModal } from '@/features/store/use-workspace-modal';
 import { useRouter } from 'next/navigation';
+import useGetWorkSpaceId from '@/lib/useWorkSpaceId';
+import { useGetWorkSpaceInfo } from '@/features/workspace/api/use-get-info-by-id';
 
 const CreateWorkSpaceModal = () => {
-  const { data, isLoading } = useGetAllWorkspaces();
+  const id = useGetWorkSpaceId();
+  const { data: name, isLoading: nameLoad } = useGetWorkSpaceInfo({ id });
   const [open, setOpen] = useModal();
+  const { data, isLoading } = useGetAllWorkspaces();
   const router = useRouter();
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <p className="w-10 h-10 bg-zinc-200 flex items-center justify-center rounded-md">
-          {data && data.length > 0 && data[0].name.charAt(0).toUpperCase()}
+        <p className="w-10 h-10 bg-zinc-400 text-lg font-semibold flex items-center justify-center rounded-md">
+          {nameLoad ? (
+            <Loader2 className="text-black w-6 h-6 animate-spin" />
+          ) : (
+            name && name.name.charAt(0).toUpperCase()
+          )}
         </p>
       </DropdownMenuTrigger>
       <DropdownMenuContent

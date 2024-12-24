@@ -6,8 +6,8 @@ interface GetWorkSpaceInfoProp {
   id: Id<'workspaces'>;
 }
 
-export const useGetWorkSpaceInfo = ({ id }: GetWorkSpaceInfoProp) => {
-  const data = useQuery(api.workspace.getInfoById, { id });
+export const useWorkspace = ({ id }: GetWorkSpaceInfoProp) => {
+  const data = useQuery(api.workspace.getById, { id });
   const isLoading = data === undefined;
 
   return { data, isLoading };
